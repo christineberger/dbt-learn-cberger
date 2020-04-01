@@ -17,5 +17,7 @@ clean-targets:
 
 models:
   jaffle_shop:
-      example:
-          materialized: view
+    marts:
+      materialized: table
+    staging:
+      materialized: view
