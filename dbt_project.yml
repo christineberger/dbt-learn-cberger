@@ -18,5 +18,3 @@ clean-targets:
 models:
   jaffle_shop:
     materialized: table
-    example:
-      materialized: view
