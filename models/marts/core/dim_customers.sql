@@ -3,19 +3,19 @@ with
 --  References -----------------------------------------
 customers as (
     
-    select * from {{ ref('stg_customers') }}
+    select * from {{ ref('stg_jaffleshop__customers') }}
     
 ),
 
 orders as (
     
-    select * from {{ ref('stg_orders') }}
+    select * from {{ ref('stg_jaffleshop__orders') }}
     
 ),
 
 payments as (
     
-    select * from {{ ref('order_payments') }}
+    select * from {{ ref('order_payments__joined') }}
     
 ),
 

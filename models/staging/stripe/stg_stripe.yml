@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_stripe__payments
+    description: This model gets and cleans up data from Stripe payments.
+    columns:
+      - name: payment_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
