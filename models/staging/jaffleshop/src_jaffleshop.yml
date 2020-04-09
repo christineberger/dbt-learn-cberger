@@ -1,0 +1,11 @@
+version: 2
+    
+sources:  
+    - name: jaffle_shop
+      database: raw
+      description: This source supplies data from the jaffle_shop database.
+      tables:
+        - name: customers
+        - name: orders
+              
+  

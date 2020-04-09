@@ -3,13 +3,13 @@ with
 --  References -----------------------------------------
 orders as (
     
-    select * from {{ ref('stg_orders') }}
+    select * from {{ ref('stg_jaffleshop__orders') }}
     
 ),
 
 payments as (
     
-    select * from {{ ref('stg_payments') }}
+    select * from {{ ref('stg_stripe__payments') }}
     
 ),
 

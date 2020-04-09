@@ -1,0 +1,24 @@
+version: 2
+        
+models:
+  - name: stg_jaffleshop__customers
+    description: This model gets and cleans data from jaffleshop customers.
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+          
+  - name: stg_jaffleshop__orders
+    description: This model gets and cleans data from jaffleshop orders.
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']

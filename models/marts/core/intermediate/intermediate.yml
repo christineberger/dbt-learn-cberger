@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: order_payments__joined
+    description: Orders joined with each of it's payment methods (can be several per order).
+    columns:
+      - name: payment_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null

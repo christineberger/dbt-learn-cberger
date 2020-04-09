@@ -1,10 +1,13 @@
 with 
 
 source as (
+    
     select * from {{ source('stripe', 'payment') }}
+    
 ),
 
 renamed as (
+    
     select
         id as payment_id,
         "orderID" as order_id,
@@ -13,6 +16,7 @@ renamed as (
         created,
         _batched_at
     from source
+    
 )
 
 select * from renamed

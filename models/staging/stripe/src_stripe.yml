@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+    - name: stripe
+      database: raw
+      description: Source for Stripe payments.
+      tables:
+        - name: payment
