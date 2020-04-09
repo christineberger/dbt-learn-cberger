@@ -24,9 +24,6 @@ sources:
               description: "{{ doc('stripe_payments_orderid') }}"
               tests:
                 - not_null
-                - relationships:
-                    to: ref('stg_jaffleshop__orders')
-                    field: order_id
             - name: paymentMethod
               description: "{{ doc('stripe_payments_paymentMethod') }}"
             - name: amount

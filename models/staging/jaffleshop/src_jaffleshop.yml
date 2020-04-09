@@ -6,6 +6,36 @@ sources:
       description: This source supplies data from the jaffle_shop database.
       tables:
         - name: customers
-        - name: orders
+          description: "{{ doc('jaffleshop_customers') }}"
+          columns:
+            - name: id
+              description: "{{ doc('jaffleshop_customer_id') }}"
+              tests:
+                - unique
+                - not_null
+            - name: first_name 
+              description: "{{ doc('jaffleshop_customer_first_name') }}"
+            - name: last_name 
+              description: "{{ doc('jaffleshop_customer_last_name') }}"  
               
-  
+        - name: orders
+          description: "{{ doc('jaffleshop_orders') }}"
+          columns:
+            - name: id
+              description: "{{ doc('jaffleshop_order_id') }}"
+              tests:
+                - unique
+                - not_null
+            - name: user_id 
+              description: "{{ doc('jaffleshop_customer_id') }}"
+              tests:
+                - not_null
+            - name: order_date
+              description: "{{ doc('jaffleshop_order_date') }}"
+            - name: status
+              description: "{{ doc('jaffleshop_order_status') }}"
+              tests:
+                - accepted_values:
+                    values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+            - name: _etl_loaded_at
+              description: "{{ doc('jaffleshop_batched_at') }}"
