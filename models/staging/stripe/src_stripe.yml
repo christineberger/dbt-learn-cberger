@@ -3,7 +3,7 @@ version: 2
 sources:
     - name: stripe
       database: raw
-      description: Source for Stripe payments.
+      description: "{{ doc('src_stripe') }}"
       
       freshness:
         warn_after: {count: 12, period: hour}
@@ -13,5 +13,29 @@ sources:
       
       tables:
         - name: payment
+          description: "{{ doc('stripe_payments') }}"
+          columns:
+            - name: id
+              description: "{{ doc('stripe_payments_id') }}"
+              tests:
+                - unique
+                - not_null
+            - name: orderid
+              description: "{{ doc('stripe_payments_orderid') }}"
+              tests:
+                - not_null
+                - relationships:
+                    to: ref('stg_jaffleshop__orders')
+                    field: order_id
+            - name: paymentMethod
+              description: "{{ doc('stripe_payments_paymentMethod') }}"
+            - name: amount
+              description: "{{ doc('stripe_payments_amount_raw') }}"
+            - name: created
+              description: "{{ doc('stripe_payments_created') }}"
+            - name: _batched_at
+              description: "{{ doc('stripe_payments_batched_at') }}"
+            
+          
         
       

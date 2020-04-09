@@ -2,10 +2,27 @@ version: 2
 
 models:
   - name: stg_stripe__payments
-    description: This model gets and cleans up data from Stripe payments.
+    description: "{{ doc('stripe_payments') }}"
     columns:
       - name: payment_id
-        description: Primary key
+        description: "{{ doc('stripe_payments_id') }}"
         tests:
           - unique
           - not_null
+      - name: order_id
+        description: "{{ doc('stripe_payments_orderid') }}"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_jaffleshop__orders')
+              field: order_id
+      - name: payment_method
+        description: "{{ doc('stripe_payments_paymentMethod') }}"
+      - name: amount_in_usd
+        description: "{{ doc('stripe_payments_amount_dollar') }}"
+      - name: created_at_date
+        description: "{{ doc('stripe_payments_created') }}"
+      - name: _batched_at
+        description: "{{ doc('stripe_payments_batched_at') }}"
+      
+          

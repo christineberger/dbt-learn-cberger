@@ -12,8 +12,8 @@ renamed as (
         id as payment_id,
         "orderID" as order_id,
         "paymentMethod" as payment_method,
-        amount,
-        created,
+        round(amount / 100, 2) as amount_in_usd,
+        created as created_at_date,
         _batched_at
     from source
     
