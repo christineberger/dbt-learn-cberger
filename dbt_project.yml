@@ -15,6 +15,11 @@ clean-targets:
     - "target"
     - "dbt_modules"
 
+quoting:
+  database: false
+  identifier: false
+  schema: false
+
 models:
   jaffle_shop:
     marts:
