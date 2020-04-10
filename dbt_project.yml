@@ -1,5 +1,6 @@
 name: jaffle_shop
 version: '1.0.0'
+require-dbt-version: [">=0.16.0","<0.17.0"]
 
 profile: dbt_learn_snowflake
 
@@ -21,6 +22,7 @@ quoting:
   schema: false
 
 models:
+  transient: true
   jaffle_shop:
     marts:
       materialized: table

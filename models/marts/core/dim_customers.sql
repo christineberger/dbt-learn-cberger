@@ -28,7 +28,7 @@ customer_orders as (
         min(orders.order_date) as first_order_date,
         max(orders.order_date) as most_recent_order_date,
         count(orders.order_id) as number_of_orders,
-        sum(payments.amount) as lifetime_value
+        sum(payments.amount_in_usd) as lifetime_value
     from orders
     left join payments 
         using (customer_id)

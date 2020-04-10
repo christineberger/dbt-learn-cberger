@@ -20,10 +20,6 @@ sources:
               tests:
                 - unique
                 - not_null
-            - name: orderid
-              description: "{{ doc('stripe_payments_orderid') }}"
-              tests:
-                - not_null
             - name: paymentMethod
               description: "{{ doc('stripe_payments_paymentMethod') }}"
             - name: amount

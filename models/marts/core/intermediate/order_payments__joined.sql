@@ -20,7 +20,7 @@ joined as (
         orders.customer_id,
         orders.order_id,
         payments.payment_id,
-        payments.amount
+        payments.amount_in_usd
     from orders
     left join payments 
         on orders.order_id = payments.order_id
