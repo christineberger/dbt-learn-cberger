@@ -13,7 +13,7 @@ renamed as (
         "orderID" as order_id,
         "paymentMethod" as payment_method,
         round(amount / 100, 2) as amount_in_usd,
-        created as created_at_date,
+        created,
         _batched_at
     from source
     

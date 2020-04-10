@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+    - name: ticket_tailor
+      database: raw
+      description: ""
+      
+      tables:
+        - name: orders
+          description: ""

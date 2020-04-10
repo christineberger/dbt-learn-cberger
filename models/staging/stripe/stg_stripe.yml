@@ -24,5 +24,9 @@ models:
         description: "{{ doc('stripe_payments_created') }}"
       - name: _batched_at
         description: "{{ doc('stripe_payments_batched_at') }}"
+  - name: stg_stripe__learn_charges
+    description: ""
+  - name: stg_stripe__learn_refunds
+    description: ""
       
           
