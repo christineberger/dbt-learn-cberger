@@ -2,23 +2,39 @@ version: 2
         
 models:
   - name: stg_jaffleshop__customers
-    description: This model gets and cleans data from jaffleshop customers.
+    description: "{{ doc('jaffleshop_customers') }}"
     columns:
       - name: customer_id
-        description: Primary key
+        description: "{{ doc('jaffleshop_customer_id') }}"
         tests:
           - unique
           - not_null
+      - name: first_name 
+        description: "{{ doc('jaffleshop_customer_first_name') }}"
+      - name: last_name 
+        description: "{{ doc('jaffleshop_customer_last_name') }}"  
           
   - name: stg_jaffleshop__orders
-    description: This model gets and cleans data from jaffleshop orders.
+    description: "{{ doc('jaffleshop_orders') }}"
     columns:
       - name: order_id
-        description: Primary key
+        description: "{{ doc('jaffleshop_order_id') }}"
         tests:
           - unique
           - not_null
+      - name: customer_id 
+        description: "{{ doc('jaffleshop_customer_id') }}"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_jaffleshop__customers')
+              field: customer_id
+      - name: order_date
+        description: "{{ doc('jaffleshop_order_date') }}"
       - name: status
+        description: "{{ doc('jaffleshop_order_status') }}"
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+      - name: _batched_at
+        description: "{{ doc('jaffleshop_batched_at') }}"

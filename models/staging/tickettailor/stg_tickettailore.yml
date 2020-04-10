@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_tickettailor__orders
+    description: ""
+    columns:
+      - name: order_id
+        description: ""
+        tests:
+          - unique
+          - not_null
